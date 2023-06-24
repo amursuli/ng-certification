@@ -1,0 +1,19 @@
+<div class="container-fluid">
+  <h4>Template for 5-day forecast page:</h4>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">5-day forecast for {{ forecast?.city?.name }}</h3>
+    </div>
+    <ul class="list-group">
+      <!---->
+      <li class="list-group-item" *ngFor="let fc of fiveDaysForecast">
+        {{ fc?.dt_txt | date : 'EEEE' }}: {{ fc?.weather[0]?.main }} - Min:
+        {{ fc?.main?.temp_min | Temperature : 'F' }} - Max:
+        {{ fc?.main?.temp_max | Temperature : 'F' }}
+
+        <img class="icon" [src]="fc?.weather[0]?.main | imagesWeather" [alt]="fc?.weather[0]?.main" />
+      </li>
+    </ul>
+  </div>
+  <button class="btn btn-success" tabindex="0" id="mainPageBtn" (click)="goBack()">&lt; Back to main page</button>
+</div>

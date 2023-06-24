@@ -1,0 +1,27 @@
+<div class="container-fluid">
+  <h4>Template for main page:</h4>
+  <div class="well">
+    <h2>Enter a zipcode:</h2>
+    <form [formGroup]="zipcodeForm">
+      <input class="form-control" placeholder="Zipcode" type="text" id="addLocation" formControlName="zipcode" />
+      <div
+        *ngIf="
+          zipcodeForm.get('zipcode').invalid && (zipcodeForm.get('zipcode').dirty || zipcodeForm.get('zipcode').touched)
+        ">
+        <div *ngIf="zipcodeForm.get('zipcode').errors.required">Zipcode is required.</div>
+        <div *ngIf="zipcodeForm.get('zipcode').errors.pattern">Invalid zipcode format.</div>
+      </div>
+      <br />
+      <button
+        class="btn btn-primary"
+        id="addLocationBtn"
+        (click)="addLocationByZipcode()"
+        [disabled]="zipcodeForm.invalid">
+        Add location
+      </button>
+    </form>
+  </div>
+  <div *ngFor="let weather of weatherDetail; let i = index">
+    <app-weather [weatherDetail]="weather" (removeLocation)="removeLocation($event, i)"></app-weather>
+  </div>
+</div>

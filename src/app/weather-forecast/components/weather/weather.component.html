@@ -1,0 +1,20 @@
+<hr />
+<div class="well flex">
+  <div>
+    <h3>{{ weatherDetail?.place }} ({{ weatherDetail?.zipcode }})</h3>
+    <h4>Current conditions: {{ weatherDetail?.condition }}</h4>
+    <h4>Temperatures today:</h4>
+    <p>
+      Current {{ weatherDetail?.currentTemperature | Temperature : 'F' }} - Max
+      {{ weatherDetail?.maxTemperature | Temperature : 'F' }} - Min
+      {{ weatherDetail?.minTemperature | Temperature : 'F' }}
+    </p>
+    <p>
+      <a routerLink="/forecast/{{ weatherDetail?.zipcode }}">Show 5-day forecast for {{ weatherDetail?.place }}</a>
+    </p>
+  </div>
+  <div>
+    <span class="close" (click)="closeWeather(weatherDetail?.zipcode)">×</span>
+    <img [src]="weatherDetail?.condition | imagesWeather" [alt]="weatherDetail?.place" />
+  </div>
+</div>

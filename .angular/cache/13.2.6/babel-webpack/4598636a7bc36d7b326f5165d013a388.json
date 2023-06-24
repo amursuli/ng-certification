@@ -1,1 +1,0 @@
-{"ast":null,"code":"export var handleApiError = function handleApiError(error) {\n  var errorMessage = 'An API error occurred';\n\n  if (error.error && error.error.message) {\n    errorMessage = \"API Error: \".concat(error.error.message);\n  }\n\n  console.log(\"Error: \".concat(errorMessage));\n};","map":null,"metadata":{},"sourceType":"module"}

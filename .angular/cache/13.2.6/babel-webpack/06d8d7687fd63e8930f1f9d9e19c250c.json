@@ -1,1 +1,0 @@
-{"ast":null,"code":"import { Version } from '@angular/core';\n/** Current version of the Angular Component Development Kit. */\n\nvar VERSION = /*#__PURE__*/new Version('16.1.2');\nexport { VERSION }; //# sourceMappingURL=cdk.mjs.map","map":null,"metadata":{},"sourceType":"module"}
